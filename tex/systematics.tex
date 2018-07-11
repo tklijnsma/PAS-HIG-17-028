@@ -1,0 +1,145 @@
+\section{Systematic uncertainties}
+\label{sec:systematics}
+
+The systematic experimental uncertainties from the input analyses are incorporated in the combination as nuisance parameters in the extended likelihood fit and are profiled.
+% 
+Among the decay channels, correlations are taken into account for the systematic uncertainties in jet energy scale and resolution, and integrated luminosity.
+% 
+Full descriptions of the experimental systematic uncertainties per decay channel may be found in Refs.~\cite{CMS_AN_2017-299,CMS_AN_2016-442,CMS_AN_2016-366}.
+
+% \ccle{
+%     Para starting L196. I don't think fiducial is being used quite correctly here. We tend to use it to mean a limited phase space but it means a benchmark. In this paragraph I think you are using it to describe a part of the whole phase space. I'd suggest revising to something like
+%     "Our measurement is made over the full phase space rather than limited to a region of phase space. This means that uncertainties in the acceptances for the individual analyses and in the branching fractions may affect our results. The effect of the acceptance uncertainties per bin on the overall uncertainty is less than one percent and so this is neglected in the combination.
+%     }
+
+Our measurement is made for the full phase space rather than limited to a fiducial phase space (as is the case for the original $\hgg$ and $\hzz$ analyses).
+% 
+This means that uncertainties in the acceptances for the individual analyses and in the branching fractions may affect our results.
+% 
+The effect of the acceptance uncertainties per bin on the overall uncertainty is less than one percent and so this is neglected in the combination.
+% 
+% As our measurement covers the full phase space rather than a fiducial one (as is the case for the original $\hgg$ and $\hzz$ analyses), uncertainties related to the fiducial acceptance and the branching fractions in principle affect our results.
+% % 
+% The effect of the fiducial acceptance uncertainties per bin on the overall uncertainty was below one percent, and we have therefore neglected it in the combination.
+% 
+Likewise the overall effect of the branching fraction uncertainties on the combined spectra is below one percent, and has been neglected.
+% 
+The uncertainty in the inclusive production cross section from non-gluon fusion production modes, determined to be about 2.1\%~\cite{deFlorian:2016spz}, has been taken into account as a nuisance parameter.
+% 
+% \tk{Proofs for these statements to be included in the AN.}
+% 
+% \tk{Uncertainties related to fiducial acceptance and BR to be implemented and then described here.}
+% 
+% \arc{the placeholder for the uncertainties on the extrapolation to the full phase space should probably go under 6.2 theoretical uncertainties instead of 6.1 experimental uncertainties (or the subsectioning of section 6 could be dropped)}
+
+
+The theoretical predictions described in Sec.~\ref{sec:theory} are subject to theoretical uncertainties from the renormalisation scale $\mu_R$, the factorisation scale $\mu_F$ and the resummation scale $Q$.
+% 
+The standard approach to evaluate the impact of these uncertainties is to compute an envelope of scale variations, and taking the extrema of the envelope.
+% 
+To this end, $\mu_R$ and $\mu_F$ are independently varied between $0.5$, $1$ and $2$ times their nominal value, whereas the fraction $\frac{\mu_R}{\mu_F}$ is not to be less than $0.5$ or greater than $2.0$.
+% 
+As the theoretical spectra in the $\kappa_t$/$\cg$/$\kappa_b$ case and the $\kappa_c$/$\kappa_b$ case contain a resummation, the resummation scale $Q$ is varied from $0.5$ to $2$ times its central value (while keeping $\mu_F$ and $\mu_R$ at their central value).
+% 
+The theoretical uncertainties are determined by applying the default approach of taking the minimum and maximum scale variations per bin.
+% 
+The resulting uncertainties are shown in Table~\ref{tab:TheoryUncertainties_kappab_kappac} for the $\kappa_b$/$\kappa_c$ spectra and in Table~\ref{tab:TheoryUncertainties_kappat_kappag} for the $\kappa_t$/$\cg$ spectra.
+% 
+
+\begin{table}[htb]
+\footnotesize
+\begin{center}
+\begin{tabular}{lccccc}
+\hline
+\input{img/corrmats_newbinning/errors_yukawa_yukawa.tex}
+\hline
+\end{tabular}
+\end{center}
+\caption{
+    Theoretical uncertainties for the $\kappa_b$/$\kappa_c$ spectra.
+    }
+\label{tab:TheoryUncertainties_kappab_kappac}
+\end{table}
+
+\begin{table}[htb]
+\footnotesize
+\begin{center}
+% \hspace*{-1.7cm}%
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{lccccccccc}
+\hline
+\input{img/corrmats_newbinning/errors_tophighpt_tophighpt.tex}
+\hline
+\end{tabular}
+\end{center}
+\caption{
+    Theoretical uncertainties for the $\kappa_t$/$\cg$ and $\kappa_t$/$\kappa_b$ spectra.
+    % 
+    % \tk{Need to make these tables fit to the page.}
+    % 
+    % \tk{
+    %     Theory uncertainty tables necessary? If so I will make the tables prettier.
+    %     % 
+    %     Alternatively I only supply the covariance matrix.
+    %     }
+    }
+\label{tab:TheoryUncertainties_kappat_kappag}
+\end{table}
+
+
+
+Theoretical uncertainties are subject to bin-to-bin correlations, that are notoriously difficult to calculate.
+% 
+We adopt a procedure that obtains a correlation coefficient directly from the individual scale variations:
+% ~\cite{Grazzini:PrivateComm}:
+% 
+\begin{equation}
+\rho = 
+\frac{
+    \sum_i ( \sigma_{1, i} - \overline{\sigma}_1 ) ( \sigma_{2, i} - \overline{\sigma}_2 )
+    }{
+    \sqrt{
+        \sum_i ( \sigma_{1, i} - \overline{\sigma}_1 )^2
+        \sum_i ( \sigma_{2, i} - \overline{\sigma}_2 )^2
+        }
+    }
+    \,,
+\end{equation}
+% 
+where $\sigma_{1 (2), i}$ is the cross section in bin 1 (2) of the $i^\text{th}$ scale variation, $\overline{\sigma}_{1 (2)}$ is the mean cross section in bin 1 (2), and $\rho$ is the resulting correlation coefficient between bin 1 and 2.
+% 
+% This method does not take into account correlations due to the uncertainties on the parton density functions (PDF).
+% 
+% \arc{Equation 10: it could be good to mention that bin by bin pdf uncertainty is neglected. Do you have a reference for “notoriously difficult to perform” ? Is the procedure that you use new ?}
+% 
+The correlation structure is characterized by strong correlations among the central bins.
+% 
+Only the bins below $15$\GeV and above $600$\GeV in $\pth$ are anti-correlated with the central region.
+
+% The correlation matrices obtained from this procedure are shown in Fig.~\ref{fig:scalecorrelationmatrices}.
+% % 
+% % \tk{Supply plotted correlation matrices here? Note no CMS data is used for these plots.}
+% % 
+% % Since the theoretical calculations use different methods for modification of the SM Lagrangian, the correlation matrices are not expected to be the same \tk{Check this sentence}.
+% % 
+% In both cases the low $\pth$-region is less correlated with other bins than the other bins among one another.
+% % 
+% This is mostly due to the resummation that has a large impact on the low $\pth$-region.
+% % 
+% In the case of $\kappa_t$/$\cg$ variations, the overflow bin is less correlated as well.
+
+% \begin{figure}[hbtp]
+%   \begin{center}
+%     \includegraphics[width=\cmsFigWidth]{img/corrmats_newbinning/corrmat_yukawa.pdf}
+%     \includegraphics[width=\cmsFigWidth]{img/corrmats_newbinning/corrmat_tophighpt.pdf}
+%     \caption{
+%         (\cmsLeft) Correlation matrix for theoretical uncertainties on $\kappa_b$/$\kappa_c$ variations.
+%         (\cmsRight) Correlation matrix for theoretical uncertainties on $\kappa_t$/$\cg$/$\kappa_b$ variations.
+%         % 
+%         % \tk{Add ``CMS Preliminary 35.9 fb$^{-1}$'' here? It's not a plot that uses CMS data.}
+%         }
+%     \label{fig:scalecorrelationmatrices}
+%   \end{center}
+% \end{figure}
+
+

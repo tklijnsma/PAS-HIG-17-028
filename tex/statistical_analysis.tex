@@ -1,0 +1,295 @@
+\section{Statistical analysis}
+\label{sec:statisticalanalysis}
+
+% \arc{section 4 seems to contain a lot of math that is not really specific of this article. Equation (1) and the accompanying description are useful to explain the efficiency matrix and treatment of the out-of-fiducial, but the rest of the math is not necessary, and so it feels a bit out of place since the rest of the article is rather terse on details. Maybe it would be better to keep the first formula, and rather describe the others with words, highlighting the ideas of the mathematical treatment. Also, the math spells out the dependency of the nuisances in some places, but not in other quantities that should also depend on nuisance parameters, which may be confusing.}
+
+% Instead of fitting cross sections to data, it is instead opted to fit \textit{signal strengths} for the combination of differential observables.
+% % 
+% The detector acceptance is still fully modelled, which makes the procedure equivalent to an extrapolation to full phase space.
+% % 
+% The signal strength $\mu$ is defined as the modifier of the SM cross section $\sigma_\text{SM}$ needed to best fit the data:
+% % 
+% \begin{equation}
+%     \sigma = \mu \cdot \sigma_\text{SM}
+%     \,,
+% \end{equation}
+% % 
+% where $\sigma$ is a cross section that fits best to some data.
+
+The cross sections are extracted through a simultaneous extended maximum likelihood fit~\cite{Cowan:2010js} to the diphoton, four-lepton and the anti-$k_T$ jet mass spectra in all the analysis categories of $\hgg$, $\hzz$ and $\hbb$ respectively.
+% 
+Systematic uncertainties are implemented as nuisance parameters.
+
+
+The number of expected signal events $n^\text{sig}$ in a given reconstructed bin $i$, given analysis category $k$ and given decay channel $m$ is given by:
+% 
+\begin{equation}
+n_i^{\text{sig},\,km}(\vec{\Delta\sigma} | \vec{\theta})
+= \sum_{j=1}^{n_b^\text{gen}}
+    \Delta\sigma_j \cdot L(\vec{\theta})
+    \cdot A_j^{km}(\vec{\theta}) \cdot \text{BR}^{m}(\vec{\theta})
+    \cdot \varepsilon_{ji}^{km}(\vec{\theta})
+    + n^{\text{OOA},\,km}_i(\vec{\theta})
+\,,
+\label{eq:nsig}
+\end{equation}
+% 
+where:
+% 
+\begin{itemize}
+\item $j$ is an index to bin $j$ at generator level
+% , and $l$ an index to invariant mass bin $l$
+% 
+\item $n_b^\text{gen}$ is the number of kinematic bins at generator level, which is the same for all decay channels
+% 
+% \item $\vec{\mu} = (\mu_1, \dots, \mu_{n_b})$ is the set of signal strengths at generator level per kinematic bin%
+% % 
+% \footnote{
+%     The signal strengths can be reinterpreted as cross sections by multiplication with the SM cross section $\sigma^\text{SM}$.
+%     % 
+%     The detector acceptance is still fully modelled, which makes the procedure equivalent to an extrapolation to full phase space.
+%     }
+% 
+% \item $\mathcal{L}_i(\vec{\mu})$ is the contribution from the $i^\text{th}$ kinematic bin at generator level to the overall likelihood to find $\vec{\mu}$
+% 
+% \item $S^{l}_{i}$ is the number of signal events in kinematic bin $i$ and invariant mass bin $l$
+% 
+% \item $\sigma$ is the inclusive cross section, and $L$ is the integrated luminosity of the samples used in this analysis
+% 
+\item $\vec{\Delta\sigma}$ is the set of differential cross sections at generator level, and $L$ is the integrated luminosity of the samples used in this analysis.
+% 
+\item $A_j^{km}$ is the acceptance (fraction of the overall cross section) in reconstructed bin $j$, and $\text{BR}^m$ is the branching fraction of decay channel $m$.
+% 
+\item $\varepsilon_{ji}^{km}$ is the efficiency with which events originating from bin~$j$ are reconstructed in bin~$i$%
+% , specific for category $k$ and decay channel $m$
+.
+Note that the corresponding matrix $\vec{\varepsilon}^{\,km}$ need not be square; the number of reconstructed bins may be smaller than the number of bins at generator level.
+% 
+% \item $f_l^{sig}$ is the fraction of events in the invariant mass bin $l$ (i.e. the invariant mass distribution of the signal in bin $l$)
+% 
+\item $n^{\text{OOA},\,km}_i $ is the number of events originating from outside the fiducial phase space reconstructed in bin $i$, specific for category $k$ and decay channel $m$.
+% 
+This contribution is roughly 1\% of the total yield for $\hgg$, and a negligible fraction for the other decay channels.
+% 
+% $f_l^\text{OOA}$ is the fraction thereof that is reconstructed in the $l^\text{th}$ invariant mass bin.
+% 
+\item $\vec{\theta}$ is the set of nuisance parameters.
+\end{itemize}
+% 
+The summation and the efficiencies ensure that bin-to-bin migrations are taken into account, effectively allowing unfolding of the detector effects.
+% 
+% The recommendations in Ref.~\cite{Hansen:LShape} do not indicate a further need for regularization of the detector unfolding.
+% 
+Following the prescription in Ref.~\cite{Hansen:LShape}, we found that no regularization term was needed.
+
+
+
+
+
+An extended likelihood function~\cite{Cowan:2010js} for a single decay channel $m$ is constructed:
+% 
+% \begin{equation}
+\begin{align}
+\begin{split}
+% \mathcal{L}(\vec{\Delta\sigma} | \vec{\theta})
+\mathcal{L}_m(\vec{\Delta\sigma} | \vec{\theta}) =
+    % \prod_{m=1}^{n_c}
+    \prod_{i=1}^{n_b^{\text{reco},\,m}}
+    \prod_{k=1}^{n_\text{cat}^m}
+    \prod_{l=1}^{n_\mathcal{O}^m}
+        &
+        \left(
+        \text{pdf}_i^{\,km}(\mathcal{O}_l^m | \vec{\Delta\sigma}, \vec{\theta})
+        \right)^{ N_\text{obs}^{iklm} }
+        % \,
+        \\
+        & \quad \cdot
+        \text{Poisson}\left(
+            N_\text{obs}^{ikm}
+            \, \left| \,
+            n_i^{\text{sig},\,km}(\vec{\Delta\sigma} | \vec{\theta})
+            + n^{\text{bkg},\,km}_i(\vec{\theta})
+            \right)\right.
+\,,
+\label{eq:L_per_decaychannel}
+\end{split}
+\end{align}
+% \end{equation}
+% 
+where:
+% 
+\begin{itemize}
+% 
+\item $\mathcal{O}^m$ is the observable, i.e. the diphoton, four-lepton or the anti-$k_T$ jet mass for the $\hgg$, $\hzz$ and $\hbb$ decay channels respectively,
+% 
+\item $n_b^{\text{reco},\,m}$ is the number of reconstructed bins,
+$n_\text{cat}^m$ is the number of categories for the decay channel,
+and $n_\mathcal{O}^m$ is the number of bins for observable $\mathcal{O}$,
+% 
+\item $N_\text{obs}^{iklm}$ is the number of observed events reconstructed in kinematic bin $i$, category $k$ and observable bin $l$,
+% 
+\item $n^{\text{bkg},\,km}_i$ is the number of expected background events,
+% 
+\item $\text{pdf}_i^{\,km}(\mathcal{O}_l | \vec{\Delta\sigma}, \vec{\theta})$ is the probability distribution function for the observable, based on the signal and background distributions of the observable.
+% 
+\end{itemize}
+% 
+In order to combine decay channels, the likelihood formulae for the individual decay channels are multiplied:
+% 
+\begin{equation}
+\mathcal{L}(\vec{\Delta\sigma} | \vec{\theta})
+= \prod_{m=1}^{n_c} \mathcal{L}_m(\vec{\Delta\sigma} | \vec{\theta})
+    \,\cdot\,
+    \text{pdf}(\vec{\theta})
+\,,
+\end{equation}
+% 
+where $n_c$ is the number of decay channels included in the combination, $\mathcal{L}_m$ is the likelihood formula from Eq.~\ref{eq:L_per_decaychannel} specific to decay channel $m$, and $\text{pdf}(\vec{\theta})$ is the probability distribution of the nuisance parameters.
+% 
+For the individual analyses, the number of categories, invariant mass bins and even the number of reconstructed bins may differ, although the number of bins at generator level and their bin boundaries need to be aligned between decay channels.
+% 
+Note that a single set of differential cross sections and nuisance parameters is applied to all decay channels simultaneously.
+
+
+The test statistic $q$ is defined as:
+% 
+\begin{equation}
+q(\vec{\Delta\sigma}) = -2 \cdot \ln \left(
+    \frac{
+        \mathcal{L}
+            \left(
+            \vec{\Delta\sigma} \left| \hat{\vec{\theta}}_{\vec{\Delta\sigma}}
+            \right)\right.
+        }{
+        \mathcal{L}
+            \left(
+            \hat{\vec{\Delta\sigma}} \left| \hat{\vec{\theta}}
+            \right)\right.
+        }
+\right)
+\,.
+\label{eq:TestStatisticQ}
+\end{equation}
+% 
+% 
+The quantities $\hat{\vec{\Delta\sigma}}$ and $\hat{\vec{\theta}}$ are the unconditional maximum likelihood estimates for the parameters $\vec{\Delta\sigma}$ and $\vec{\theta}$ respectively, while $\hat{\vec{\theta}}_{\vec{\Delta\sigma}}$ denotes the maximum like estimate for $\vec{\theta}$ conditional on the values of $\vec{\Delta\sigma}$.
+% 
+% where $\mathcal{L}$ is the fitted likelihood, the symbol $\hat{{}}$ indicates the variable is left floating in the fit, i.e. it was ``profiled'', and $\vec{\theta}$ is the set of all nuisance parameters included in the likelihood fit.
+% 
+% $\hat{\theta}_\vec{\Delta\sigma}$ carries the subscript ``$\vec{\Delta\sigma}$'' to indicate it was optimized for fixed values of $\vec{\Delta\sigma}$.
+% 
+% In the limit of large statistics, $q$ is $\chi^2$-distributed.
+% 
+It is assumed that $q$ is $\chi^2$-distributed.
+% 
+% The uncertainties on the signal strengths are obtained by scanning $q$ over a range of values for some $\mu$, and recording the interval between the points where $q(\mu) = 1$.
+
+The Higgs coupling modifiers are fitted through a largely analogous procedure, utilizing the full likelihood.
+% 
+The difference is that instead of freely floating parameters for the differential cross sections $\vec{\Delta\sigma}$, the differential cross sections are replaced with parametrizations of the theoretical spectra described in Sec.~\ref{sec:theory}:
+% 
+\begin{equation}
+    \vec{\Delta\sigma} \; \to \; \vec{\Delta\sigma}( \kappa_a, \kappa_b )
+    \,,
+\end{equation}
+% 
+where $\kappa_a$ and $\kappa_b$ are the coupling modifiers to be fitted.
+% 
+The theoretical uncertainties described in Sec.~\ref{sec:theory} are implemented as nuisance parameters.
+% 
+The coupling modifiers are implemented as freely floating parameters in the fit, and as such the corresponding degree of freedom of $q$ is equal to the number of coupling modifiers.
+
+
+
+
+
+% ____________________________________________________________________________
+% ____________________________________________________________________________
+%                Worked out signal and bkg distributions; drop
+
+% % 
+% % In a single bin of the invariant mass spectrum the expected number of signal events is given by:
+% % 
+% The density of signal events with respect to an observable $\mathcal{O}$ is given by:
+% % 
+% \begin{equation}
+% \begin{align}
+% % S^{l}_{i}(\vec{\mu} | \vec{\theta})
+% S^{km}_{i}( \mathcal{O} | \vec{\Delta\sigma}, \vec{\theta})
+% =
+%     \sum_{j=1}^{n_b^\text{gen}}
+%         \Delta\sigma_j \cdot L
+%         \cdot A_j^{km} \cdot \text{BR}^{m}
+%         \cdot \varepsilon_{ji}^{km}(\vec{\theta})
+%         \cdot f_{j}^{\text{sig},\,km}( \mathcal{O} | \vec{\theta} )
+%     + n^{\text{OOA},\,km}_i
+%         \cdot f^{\text{OOA},\,km}( \mathcal{O} | \vec{\theta} )
+% \,,
+% %
+% \label{eq:Ssig}
+% \end{align}
+% \end{equation}
+% % 
+% where:
+% % 
+% \begin{itemize}
+% \item $\mathcal{O}$ is the observable that is fitted to (the invariant mass of the decay products for $\hgg$ and $\hzz$, and the soft-drop mass for $\hbb$).
+% % 
+% \item $S^{km}_{i}( \mathcal{O} | \vec{\Delta\sigma}, \vec{\theta})$ is the density of signal events with respect to observable $\mathcal{O}$ in reconstructed bin $i$.
+% % 
+% % \item $f_{j}^{\text{sig},\,km}(\mathcal{O},\vec{\theta})$ is the $l^\text{th}$ bin of the invariant (soft-drop) mass distribution of the signal in bin $j$.
+% % 
+% \item $f_{j}^{\text{sig},\,km}(\mathcal{O},\vec{\theta})$ is the signal distribution of events in observable $\mathcal{O}$ in bin $j$.
+% % 
+% \item $n^{\text{OOA},\,km}_i$ is the number of events reconstructed in bin $i$ originating from outside the fiducial phase space, and $f^{\text{OOA},\,km}( \mathcal{O} | \vec{\theta} )$ is the distribution thereof in observable $\mathcal{O}$.
+% % 
+% \end{itemize}
+% % 
+% % Equation~\ref{eq:Ssig} describes the invariant mass distribution, whereas Eq.~\ref{eq:nsig} describes the overall number of signal events.
+% % 
+% Equation~\ref{eq:Ssig} describes the density of signal events at a given value of $\mathcal{O}$, whereas Eq.~\ref{eq:nsig} describes the overall number of signal events.
+% % 
+% % Similarly, the number of background events in a given bin of the invariant mass distribution is given by:
+% % 
+% Similarly, the density of background events at a given value of $\mathcal{O}$ is given by:
+% % 
+% \begin{equation}
+% \begin{align}
+% B^{km}_i(\mathcal{O}|\vec{\theta})
+% = n^{\text{bkg},\,km}_i
+%     \cdot f^{\text{bkg},\,km}(\mathcal{O}|\vec{\theta})
+% \,,
+% \end{align}    
+% \end{equation}
+% % 
+% where
+% % $B^{km}_i(\mathcal{O}|\vec{\theta})$ is the density of expected background events in reconstructed bin $i$,
+% $n^{\text{bkg},\,km}_i$ the number of background events, and $f^{\text{bkg},\,km}(\mathcal{O}|\vec{\theta})$ the distribution thereof.
+% % 
+
+
+%%%%%% Additional: worked out pdf(...)
+
+% An overall probability distribution function of observable $\mathcal{O}$ may be constructed by summation of the signal and background distributions, and normalizing to one:
+% % 
+% \begin{equation}
+% \text{pdf}_i^{\,km}(\mathcal{O} | \vec{\Delta\sigma}, \vec{\theta})
+% = \frac{
+%         % n_i^{\text{sig},\,km}(\vec{\Delta\sigma} | \vec{\theta}) \,
+%         S^{km}_{i}( \mathcal{O} | \vec{\Delta\sigma}, \vec{\theta})
+%         +
+%         % n^{\text{bkg},\,km}_i
+%         B^{km}_i(\mathcal{O}|\vec{\theta})
+%     }{
+%         n_i^{\text{sig},\,km}(\vec{\Delta\sigma} | \vec{\theta}) \,
+%         + n^{\text{bkg},\,km}_i
+%     }
+% \,,
+% \end{equation}
+% % 
+% where $\text{pdf}_i^{\,km}(\mathcal{O} | \vec{\Delta\sigma}, \vec{\theta})$ describes the probability to find an event measuring observable $\mathcal{O}$ in reconstructed bin $i$.
+
+
+%                END OF Worked out signal and bkg distributions; drop
+% ____________________________________________________________________________
+% ____________________________________________________________________________

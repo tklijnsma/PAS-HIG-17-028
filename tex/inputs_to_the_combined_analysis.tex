@@ -1,0 +1,232 @@
+\section{Inputs to the combined analysis}
+
+For all the measurements used as input to the combination ($\hgg$~\cite{CMS_AN_2017-299}, $\hzztofourl$~\cite{CMS_AN_2016-442} and boosted $\hbb$~\cite{CMS_AN_2016-366}), the data set corresponds to an integrated luminosity of about $35.9\,\text{fb}^{-1}$.
+% 
+% \arc{reference to CMS Note 2016/336 is not appropriate. It looks like arxiv:1709.05543. One should refer to the CMS publication. Can you explain in the paper why this Hbb measurement especially is good for your purpose, and not other CMS Hbb measurements ?}
+% 
+% For the $\hgg$ and $\hzz$ decay channels the gluon fusion production process dominates, whereas for $\hbb$ the dominant production process is associated vector boson production.
+% 
+% The Higgs bosons contributing to the boosted $\hbb$ result have high transverse momentum and therefore this result addresses a region of phase space in which the $\hgg$ and $\hzz$ results are least sensitive.
+% 
+% Including the boosted $\hbb$ result in the combination improves the precision at high transverse momentum, where there is limited data in the $\hgg$ and $\hzz$ channels.
+% 
+The $\hbb$ decay channel is only included in the combination of the Higgs boson transverse momentum spectrum, where it contributes to the measurements at the higher end of the spectrum ($\pth > 350$\GeV).
+% 
+It improves the precision in a region of phase space that is sensitive to effects that manifest themselves at high transverse momentum, and in which the data in the $\hgg$ and $\hzz$ decay channels are limited.
+% 
+% Including the boosted $\hbb$ result in the combination improves the precision in a region of phase space sensitive to effects that manifest themselves at high transverse momentum.
+% 
+% This process is only included in the Higgs boson transverse momentum spectrum, where it contributes to the measurements at the higher end of the spectrum ($\pth > 350$\GeV).
+% 
+% Its inclusion in the combination provides improved precision in a region of phase space that is crucial for sensitivity to effects that manifest at high transverse momentum, such as resolving the quark-loop in the gluon fusion production process.
+% 
+% The inclusion of $\hbb$ applies only for the Higgs transverse momentum spectrum, where $\hbb$ contributes to the measurements in the higher end of the spectrum ($\pth > 350$\GeV).
+% 
+Tables~\ref{tab:binningpth}, \ref{tab:binningnjets}, \ref{tab:binningabsy} and \ref{tab:binningptjet} show an overview of the bin boundaries used in the individual analyses.
+% 
+% \arc{It might be good to say that for gamma gamma and ZZ are targeting mainly gluon fusion, while usually bb is targeting VH; however this analysis is inclusive also in bb. It may be also good to explain briefly how are done the analyses.}
+
+
+The SM prediction for the differential cross sections is simulated at next-to-leading order (NLO) in perturbative quantum chromodynamics (QCD) with $\MGvATNLO$~\cite{Alwall:2014hca} for each of the four dominant Higgs production modes: gluon-gluon fusion (ggH), vector boson fusion (VBF), associated production with a W/Z boson (VH), and associated production with a top quark-antiquark pair (ttH).
+% 
+Up to two additional jets in association with the Higgs boson are included in the simulation.
+% 
+Simulated events are interfaced to \PYTHIA~\cite{Sjostrand:2014zea} for parton showering and hadronization and the CUETP8M1~\cite{Skands:1695787} parameter set is applied to tune the underlying event.
+% 
+A weight is applied to simulated gluon fusion events to match the predictions from the {\textsc{nnlops}} program~\cite{Hamilton:2012np, Kardos:2014dua}.
+% 
+This weight depends on the Higgs boson transverse momentum $\pth$ and the number of jets in the event $\njets$.
+% 
+% On events simulated in the gluon fusion production mode a weight is applied according to Higgs transverse momentum $\pth$ and the number of jets in the event $\njets$, in order to match prediction from the NNLOPS program~\cite{Hamilton:2012np, Kardos:2014dua}.
+% 
+%% Sentence from Vittorio; not sure if relevant:
+% The POWHEG NNLOPS program has the advantage of predicting at next-to-next-to-leading-order accuracy, both the differential cross section with respect to the QCD radiative effects and the normalization of the inclusive cross section~\cite{Hamilton:2013fea}.
+% 
+% \tk{Sentence from Vitt to include somehow:}
+% % 
+% The SM Higgs boson cross sections and branching fractions are taken from the LHC Higgs Cross Section Working Group recommendations~\cite{deFlorian:2016spz}.
+% % 
+% \tk{For HZZ, mention what was used for the $ZZ \rightarrow 4 \ell$ decays.}
+
+
+Each of the analyses used as input to the combination uses a different fiducial space.
+% 
+% The input analyses are performed in different fiducial phase spaces.
+% 
+In the case of $\hgg$, the fiducial phase space is defined by requiring the leading photon transverse momentum over the diphoton mass to be greater than $1/3$ and the subleading photon transverse momentum over the diphoton mass to be greater than $1/4$.
+% 
+Furthermore, for each photon candidate the sum of the generator level transverse energy of stable particles contained in a cone of radius $\Delta R=0.3$ around the candidate is required to be less than 10\GeV, where $\Delta R$ is the angular separation between particles ($\Delta R = \sqrt{ (\Delta\eta)^2 + (\Delta\phi)^2 }$).
+% 
+% Furthermore,
+% % $Iso_{gen}$, 
+% the maximum of the generator level hadronic energy contained in a cone of radius $\Delta R=0.3$ around each photon candidate is required to be less than 10\GeV, where $\Delta R$ is the angular separation between particles ($\Delta R = \sqrt{ (\Delta\eta)^2 + (\Delta\phi)^2 }$).
+% 
+% 
+In the case of $\hzz$, the 4-lepton mass is required to be greater than 70$\,$GeV, the leading Z-candidate mass must be greater than 40$\,$GeV, leptons must be separated in angular space by at least
+$\Delta R > 0.02$.
+% 
+Furthermore, at least two leptons must have a transverse momentum greater than 10$\,$GeV and at least one greater than 20$\,$GeV.
+% 
+% \tk{start hbb}
+% 
+In the case of $\hbb$, the analysis strategy requires the presence of a single anti-$k_T$ jet with a cone size $R=0.8$, $\pt>450\,$GeV, and $\left|\eta\right|<2.5$.
+% 
+Soft and wide-angle radiation is removed using the soft drop mass algorithm~\cite{Dasgupta:2013ihk}\cite{Larkoski:2014wba}.
+% 
+The jet mass after application of the soft drop mass algorithm $\msd$ peaks at the Higgs mass in the case of signal events.
+% 
+Cuts on the dimensionless mass scale variable for QCD jets $\rho=\log\left(m_{\text{SD}}^2/\pt^2\right)$~\cite{Dasgupta:2013ihk}, which relates the jet transverse momentum to the jet mass, are used to avoid finite cone effects and the non-perturbative regime of the soft drop mass calculation.
+% 
+Events with isolated electrons, muons or taus with $\pt>10$\GeV and $\absynoH<2.5$ are vetoed in order to reduce the background from SM electroweak processes, and events with $\Emiss>140$\GeV are vetoed in order to reduce the background from top-antitop quark production.
+
+
+
+There are minor differences amongst the individual analyses in Refs.~\cite{CMS_AN_2017-299,CMS_AN_2016-442,CMS_AN_2016-366} and the inputs we used for the combination of differential observables.
+% 
+For $\hgg$, an additional bin boundary in the $\pth$ spectrum is included at $600$\GeV.
+% 
+For $\hzz$, the bin boundaries in multiple spectra were modified to align them with those used in the $\hgg$ analysis.
+% 
+% Furthermore, the branching fractions of the Z boson into two leptons are fixed to their SM value in this combination, whereas in Ref.~\cite{CMS_AN_2016-442} they are allowed to float.
+% 
+Furthermore, the branching fractions of the two Z bosons to the various lepton configurations were fixed to their SM values, whereas in Ref.~\cite{CMS_AN_2016-442} these were allowed to float.
+% 
+% Finally, minor improvements on the background prediction related to the bin-to-bin correlations were carried out in Ref.~\cite{CMS_AN_2016-442}, which are not included in our results.
+% 
+For $\hbb$ the signal was split into two $\pt$-bins at generator level: the first with bin boundaries from $350$ to $600$\GeV and the second an overflow bin starting at $600$\GeV, which aligns with the bin boundaries of the other decay channels.
+% 
+The original binning at reconstructed level is merged into two bins, with bin boundaries from $450$ to $600$ and $600$ to $1000$\GeV, chosen so that the majority of signal events in a reconstructed bin originate from one generator-level bin.
+% 
+The redefinition of the reconstructed transverse momentum categories necessitated a re-evaluation of the background model, which was performed using the same procedure as in the original analysis.
+
+
+
+
+% % 
+% % \arc{it is not clear why just those two bins are kept, and why only the double b-tagger (which by the way deserves a description) is used. Is there no signal in the other bins / categories ?}
+% % 
+% The analysis makes use of the double-b tagger algorithm~\cite{CMS:2016jdj}, which is designed to identify the boosted $\hbb$ signal based on both the jet substructure and the b tagging information of the bottom-antibottom quark pair in the jet.
+% % 
+% Two double-b tagger~\cite{CMS:2016jdj} discriminator categories are employed, one being rich in signal (called the ``passing'' region) and the other deprived of signal events (called the ``'').
+% % 
+% The relation between the yields in these categories from the multijet QCD final state, the dominant background, is described with a set of polynomials taking $\rho$ and $\pt$ as input parameters.
+% % 
+% % \arc{explain which observable is fitted (soft drop mass). Also explain why a background polynomial discussion is needed here, is there any bias ? This whole discussion about bb needs better motivations for all the choices done.}
+% % 
+% Based on the outcome of the Fisher $\mathcal{F}$-test, it was determined that a polynomial of third order in $\rho$ and of first order in $\pt$ was sufficient, rather than a polynomial of second order in $\rho$ and of first order in $\pt$ as was determined for the individual analysis.
+% % 
+% \arc{the H->bb changes description in lines 115-122 is not terribly clear. The message may be that the reco pt categories were redefined to have just 2,  and in so doing you had to re-evaluate the polynomial for the background shape, but it doesn't get through clearly.}
+% 
+% 
+% 
+% The parameterization of the polynomial QCD transfer factor was changed to the Bernstein basis to ensure fit stability in the combination.
+% 
+% \tk{Original reply from Javier:
+% \textit{The six original RECO pT bins are merged into two bins from 450-600 GeV and 600-1000 GeV. We split the ggF signal into two Higgs GEN pT bins (chosen so that the majority of each RECO pT bin is composed of a single GEN pT bin) of 375-600 GeV and 600-Inf (bin edges to be checked with Michael here). In order to make the two-bin fit more stable, the parameterization of the polynomial QCD transfer factor (from the failing double-b tag region to the passing double-b tag region) was changed to the Bernstein basis to enforce a positive definite transfer factor by construction. The Fisher F-test was repeated for the new fit configuration and it determined that a polynomial 3rd order in $\rho = log(m_{SD}^2/pT^2)$ and 1st order in pT was sufficient to fit the data (rather than 2nd order in rho and 1st order in pT).}
+% }
+
+% \tk{
+%     TODO: Description per decay channel of the differences between the workspace for the individual analysis and the workspace for the combination. \\
+%     % 
+%     For $\hgg$:
+%     \begin{itemize}
+%         \item Bin boundary at 600\GeV in $\pth$ spectrum
+%         \item Split between ggH and xH may lead to minor changes in the signal fits
+%     \end{itemize}
+%     % 
+%     For $\hzz$:
+%     % 
+%     \begin{itemize}
+%     \item \textit{In HZZ, we modified the bin boundaries in accordance with the combination. The other change is that we fix the ZZ->4e,4mu,2e2mu branching fractions to the SM, whereas in HIG-16-041 they were allowed to float independently (to be more model independent). I improved the uncertainty scheme on the ZZ background prediction for the N(jets) differential cross section measurement, adopting a Stewart-Tackmann approach. This is because we considered only $>=3$ jets in HIG-16-041 but now we have $>=4$. This actually made very little difference in the actual results.
+%     }
+%     \end{itemize}
+%     % 
+%     For $\hbb$ [Still awaiting reply from authors here]:
+%     \begin{itemize}
+%         \item Does main analysis have the differential result?
+%         \item Bernstein polynomian for bkg?
+%     \end{itemize}
+%     }
+
+\begin{table}[htbH]
+\footnotesize
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
+\hline
+Channel & \multicolumn{9}{l|}{$\pth$ bin boundaries (GeV)} \\
+\hline
+$\hgg$
+    & [0, 15)    & [15, 30)   & [30, 45)   & [45, 80)        & [80, 120)
+    & [120, 200) & [200, 350) & [350, 600) & [600, $\infty$)
+    \\
+\hline    
+$\hzz$
+    & [0, 15) & [15, 30) & \multicolumn{2}{c|}{[30, 80)}
+    & \multicolumn{2}{c|}{[80, 200)} & \multicolumn{3}{c|}{[200, $\infty$)}
+    \\
+\hline
+$\hbb$
+    & \multicolumn{7}{c|}{} & [350, 600) & [600, $\infty$)
+    \\
+\hline
+\end{tabular}
+\end{center}
+\caption{
+    $\pth$ bin boundaries for the $\hgg$, $\hzz$ and $\hbb$ decay channels.
+    }
+\label{tab:binningpth}
+\end{table}
+
+\begin{table}[htbH]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|}
+\hline
+Channel & \multicolumn{5}{l|}{$\njets$ bin boundaries (\# of jets)} \\
+\hline
+$\hgg$ & 0 & 1 & 2 & 3 & $\ge$4 \\
+\hline
+$\hzz$ & 0 & 1 & 2 & \multicolumn{2}{c|}{$\ge$3} \\
+\hline
+\end{tabular}
+\end{center}
+\caption{
+    $\njets$ bins for the $\hgg$ and the $\hzz$ decay channels.
+    }
+\label{tab:binningnjets}
+\end{table}
+
+\begin{table}[htbH]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Channel & \multicolumn{6}{l|}{$\absy$ bin boundaries} \\
+\hline
+$\hgg$ & [0.0, 0.15) & [0.15, 0.30) & [0.30, 0.60) & [0.60, 0.90) & \multicolumn{2}{c|}{[0.90, 2.50]} \\
+\hline
+$\hzz$ & [0.0, 0.15) & [0.15, 0.30) & [0.30, 0.60) & [0.60, 0.90) & [0.90, 1.20) & [1.20, 2.50] \\
+\hline
+\end{tabular}
+\end{center}
+\caption{
+    $\absy$ bins for the $\hgg$ and the $\hzz$ decay channels.
+    }
+\label{tab:binningabsy}
+\end{table}
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Channel & \multicolumn{6}{l|}{$\ptjet$ bin boundaries (GeV)} \\
+\hline
+$\hgg$ & [0, 30) & [30, 55) & [55, 95) & [95, 120) & [120, 200) & [200, $\infty$) \\
+\hline
+$\hzz$ & [0, 30) & [30, 55) & [55, 95) & \multicolumn{3}{c|}{ [95, $\infty$) } \\
+\hline
+\end{tabular}
+\end{center}
+\caption{
+    $\ptjet$ bin boundaries for the $\hgg$ and the $\hzz$ decay channels.
+    }
+\label{tab:binningptjet}
+\end{table}
